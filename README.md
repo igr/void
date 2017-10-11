@@ -1,2 +1,3 @@
 # void
-just a space for nothing specific
+
+...just a space for nothing specific.
