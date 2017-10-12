@@ -21,7 +21,7 @@ public class RunMe {
 
 		naiveCounter = new NaiveCounter();
 		elapsed = count(naiveCounter::incrementSynchronized);
-		System.out.println("Naive: " + naiveCounter.count() + " in " + elapsed + "ms.");
+		System.out.println("NaiveSync: " + naiveCounter.count() + " in " + elapsed + "ms.");
 
 		// AtomicLong
 
@@ -34,6 +34,12 @@ public class RunMe {
 		LongAdder longAdder = new LongAdder();
 		elapsed = count(longAdder::increment);
 		System.out.println("Long: " + longAdder.intValue() + " in " + elapsed + "ms.");
+
+		// VarHandle
+
+		VarHandleCounter varHandle = new VarHandleCounter();
+		elapsed = count(varHandle::increment);
+		System.out.println("Var: " + varHandle.count() + " in " + elapsed + "ms.");
 
 	}
 
