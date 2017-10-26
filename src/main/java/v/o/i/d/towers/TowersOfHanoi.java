@@ -6,7 +6,7 @@ package v.o.i.d.towers;
  * tells of a Hindu temple where the pyramid puzzle might have been used for the mental discipline
  * of young priests. Legend says that at the beginning of time the priests in the temple were given a
  * stack of 64 gold disks, each one a little smaller than the one beneath it. Their assignment was to
- * transfer the 64 disks from one of the three poles to another, with one important provisoøa large disk
+ * transfer the 64 disks from one of the three poles to another, with one important rule: large disk
  * could never be placed on top of a smaller one. The priests worked very efficiently, day and night.
  * When they finished their work, the myth said, the temple would crumble into dust and the world would vanish.
  *
@@ -37,7 +37,6 @@ public class TowersOfHanoi {
 		System.out.print(toPole);
 		System.out.print(((moves % 20) == 0) ? '\n' : ' ');
 	}
-
 
 	public static void main(String[] args) {
 		hanoi(5, 1, 2, 3);
