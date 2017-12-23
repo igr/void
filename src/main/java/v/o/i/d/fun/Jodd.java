@@ -31,28 +31,22 @@ public class Jodd {	String $ =
 	"B0BOBQBQWDBOAHBRBMB#BHA@WDB0BOBQBQWDBOA"+
 	"HBRBMB#BHA@WDB0BOBQBQWDBOAHBRBM8#860@OB";
 
-	String $$="WMODBA806QRN#$@H";
-	String $$$="labs.jodd.org";
-	byte[] o;int mm,www;public
-	void jodd() { if(o == null
-		){o= $ .getBytes (); } if(
-		mm>=$.length()) { return;}
+String $$="WMODBA806QRN#$@H";
+String $$$="labs.jodd.org";
+byte[] o;int mm,www;public
+void jodd() { if(o == null
+){o= $ .getBytes (); } if(
+mm>=$.length()) { return;}
 
-		http://jodd.org
+http://jodd.org
 
-		while(o[mm]==0x20) {
-			mm++;
-		}
-		int
-			c= $$.indexOf(o[mm++])*16;
-		while(o[mm] == 32) {
-			mm++;
-		}
-		c+=
-			$$.indexOf(o[mm++]);c^=$$$
-			.charAt(www);if($$$.length
-			()==++www){www =0;}System.
-			out.print((char)c);jodd();
-	}public static  void main(
-		String[] args){new Jodd().
-		jodd();}}
+while(o[mm]==0x20)mm++;int
+c= $$.indexOf(o[mm++])*16;
+while(o[mm] == 32)mm++;c+=
+$$.indexOf(o[mm++]);c^=$$$
+.charAt(www);if($$$.length
+()==++www){www =0;}System.
+out.print((char)c);jodd();
+}public static  void main(
+String[] args){new Jodd().
+jodd();}}
