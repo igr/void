@@ -16,7 +16,8 @@ module PairsMap = Map.Make(IntPairs)
 let m = PairsMap.(empty |> add (0,1) "hello" |> add (1,0) "world")
 (* alternative, w/o the pipe operator *)
 let m = PairsMap.(add (1,1) "WORLD" (add (2,2) "HELLO" m))
-
+(* alternative, w/o the application operator *)
+let m = PairsMap.(add (5,5) "w" @@ add (6,6) "h" m)
 
 (* Iterate map *)
 
