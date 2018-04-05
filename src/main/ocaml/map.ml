@@ -1,3 +1,4 @@
+
 (* Simple version of intmap.ml, with regular maps *)
 
 module StringMap = Map.Make(String);;
@@ -26,18 +27,19 @@ printMap m;;
 
 (* sum all *)
 
-let put_key_values_into_a_list key_searched map =
-    StringMap.filter (fun key _ -> key = key_searched) map
+let put_key_values_into_a_list c map =
+    StringMap.filter (fun key _ -> String.contains key c) map
     |> StringMap.bindings
     |> List.split
     |> snd
 
-let list = put_key_values_into_a_list "K1" m;;
+let list = put_key_values_into_a_list 'K' m;;
 let ll = List.length list;;
 
 let sum_and_len xs = List.fold_left (fun (s,l) x -> s+x, l+1) (0,0) xs;;
 
 print_int(ll);;
-print_int(sum_and_len list |> snd);;
+print_string "\n";;
+print_int(sum_and_len list |> fst);;
 
 print_string "\nDone\n";;
