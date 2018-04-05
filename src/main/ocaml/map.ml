@@ -10,10 +10,10 @@ let m = StringMap.add "K2" 12 m;;
 let m = StringMap.add "K3" 13 m;;
 
 (* version 2 *)
-let m = StringMap.add "X1" 21 (StringMap.add "X2" 22 (StringMap.add "X3" 33 m));;
+let m = StringMap.(add "X1" 21 (add "X2" 22 (add "X3" 33 m)));;
 
 (* version 3 *)
-let m = StringMap.add "Z1" 31 @@ StringMap.add "Z2" 32 @@ StringMap.add "Z3" 33 m;;
+let m = StringMap.(add "Z1" 31 @@ add "Z2" 32 @@ add "Z3" 33 m);;
 
 (* version 4 *)
 let m = m |> StringMap.add "O1" 41 |> StringMap.add "O2" 42;;
