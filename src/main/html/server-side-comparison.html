@@ -1,0 +1,82 @@
+<html>
+<head>
+<script type="text/javascript">
+function run(fn) {
+	console.time("run");
+	for (var i=0; i < 100; i++) {
+    	fn();
+	}
+	console.timeEnd("run");
+}
+
+function html_InnerHtml() {
+	const html = "<p>Some <b>text</b>!</p>";
+
+	var el = document.createElement('div');
+	el.innerHTML =  html;
+
+	var target = document.getElementById('target');
+	target.appendChild(el);
+}
+
+function html_DOMParser() {
+	const html = "<p id='x'>Some <b>text</b>!</p>";
+
+	var parser = new DOMParser();
+	var el = parser.parseFromString(html, 'text/html');
+	el = el.firstChild.childNodes[1].firstChild;
+
+	var target = document.getElementById('target');
+	target.appendChild(el);
+}
+
+function html_explicit() {
+	var target = document.getElementById('target');
+
+	var p = document.createElement('p');
+	p.appendChild(document.createTextNode('Some '));
+	var b = document.createElement('b');
+	p.appendChild(b);
+	b.appendChild(document.createTextNode('text'));
+	p.appendChild(document.createTextNode('!'))
+
+ 	target.appendChild(p);
+}
+
+function html_explicit_asString() {
+	var target = document.getElementById('target');
+
+	var code = "\
+		var p = document.createElement('p');\
+		p.appendChild(document.createTextNode('Some '));\
+		var b = document.createElement('b');\
+		p.appendChild(b);\
+		b.appendChild(document.createTextNode('text'));\
+		p.appendChild(document.createTextNode('!'));\
+		p;\
+	";
+	var p = eval(code);
+
+ 	target.appendChild(p);
+}
+
+
+</script>
+</head>
+<body>
+
+<h1>ServerSide comparison</h1>
+<p>
+	Please open console for timing results.
+</p>
+<ul>
+	<li><a href="#" onclick="run(html_InnerHtml);return false;">Run #1: innerHtml</a> | 1.58s</li>
+	<li><a href="#" onclick="run(html_DOMParser);return false;">Run #2: DOM parser</a> | 5.75s</li>
+	<li><a href="#" onclick="run(html_explicit);return false;">Run #3: JS + appendChild</a> | 0.9s</li>
+	<li><a href="#" onclick="run(html_explicit_asString);return false;">Run #4: eval(JS)</a> | 7.8s</li>
+</ul>
+
+<div id="target">
+</div>
+
+</body>
