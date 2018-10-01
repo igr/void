@@ -1,19 +1,24 @@
 package v.o.i.d.ref;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.Random;
-import java.util.WeakHashMap;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Question #1
+ * Why we get OutOfMemoryError when we remove the line P1?
+ * Because internal queue of executors gets overloaded.
+ *
+ * Question #2
+ * If we have weak reference on a thread, how do we know whn thread is finished?
+ */
 public class MapLeaker {
 
-	// ThreadPoolExecutor
-	public ExecutorService exec = Executors.newFixedThreadPool(5);
-	//public Map<Task, TaskStatus> taskStatus = Collections.synchronizedMap(new HashMap<Task, TaskStatus>());
-	public Map<Task, TaskStatus> taskStatus = Collections.synchronizedMap(new WeakHashMap<Task, TaskStatus>());
-//	public Map<Task, TaskStatus> taskStatus = Collections.synchronizedMap(new ReferenceMap<Task, TaskStatus>(ReferenceType.WEAK, ReferenceType.STRONG));
+	private ExecutorService exec = Executors.newFixedThreadPool(5);
+
+	private Map<Task, TaskStatus> taskStatus = Collections.synchronizedMap(new HashMap<>());
+//	private Map<Task, TaskStatus> taskStatus = Collections.synchronizedMap(new WeakHashMap<>());
+//	private Map<Task, TaskStatus> taskStatus = Collections.synchronizedMap(new ReferenceMap<>(ReferenceType.WEAK, ReferenceType.STRONG));
 	private Random rnd = new Random();
 
 	private enum TaskStatus {
@@ -21,25 +26,24 @@ public class MapLeaker {
 	}
 
 	private class Task implements Runnable {
-		int[] temp = new int[rnd.nextInt(1000)];
+		int[] buffer = new int[rnd.nextInt(1_000_000)];
 		@Override
 		public void run() {
 			taskStatus.put(this, TaskStatus.STARTED);
 			sleep(rnd.nextInt(100));       // do something
 			taskStatus.put(this, TaskStatus.FINISHED);
-			System.out.println(taskStatus.size());      // show size!
+			System.out.println(taskStatus.size());
 		}
-
 	}
 
-	public Task newTask() {
+	private Task newTask() {
 		Task t = new Task();
 		taskStatus.put(t, TaskStatus.NOT_STARTED);
 		exec.execute(t);
 		return t;
 	}
 
-	public static void sleep(int ms) {
+	private static void sleep(int ms) {
 		try {
 			Thread.sleep(ms);
 		} catch (InterruptedException e) {
@@ -50,33 +54,10 @@ public class MapLeaker {
 	// ---------------------------------------------------------------- main
 
 	public static void main(String[] args) {
-//		sleep(10000);
-		System.out.println("---start---");
-		MapLeaker ml = new MapLeaker();
+		MapLeaker mapLeaker = new MapLeaker();
 		for (int i = 0; i < 100000; i++) {
 			sleep(50);          // P1
-			ml.newTask();
+			mapLeaker.newTask();
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-/*
- Pitanje #1:
- Zašto imamo OutOfMemoryError kada uklonimo red P1?
- Zato sto interni queue of executora se prepuni.
-*/
-
-/*
-Pitanje #2:
-Čekaj malo, ali kada imamo weak reference na thread, kako znamo kada je thread gotov?
-*/
