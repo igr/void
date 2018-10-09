@@ -1,4 +1,4 @@
-package v.o.i.d.towers;
+package challenge.towers;
 
 
 public class TowersOfHanoiIterative {

@@ -1,5 +1,3 @@
-package v.o.i.d.towers;
-
 /**
  * The Tower of Hanoi (sometimes referred to as the Tower of Brahma or the End of the World Puzzle)
  * was invented by the French mathematician, Edouard Lucas, in 1883. He was inspired by a legend that
@@ -13,32 +11,5 @@ package v.o.i.d.towers;
  * The number of separate transfers of single disks the priests must make to transfer the tower is 2 to the 64th minus 1,
  * or 18,446,744,073,709,551,615 moves! If the priests worked day and night, making one move every second it would take
  * slightly more than 580 billion years to accomplish the job!
- *
  */
-public class TowersOfHanoi {
-
-	static int moves;
-
-	/**
-	 * Recursive solution.
-	 * O(2^N) 
-	 */
-	static void hanoi(int height, int fromPole, int toPole, int withPole) {
-		if (height >= 1) {
-			hanoi(height - 1, fromPole, withPole, toPole);
-			moveDisk(fromPole, toPole);
-			hanoi(height - 1, withPole, toPole, fromPole);
-		}
-	}
-
-	static void moveDisk(int fromPole, int toPole) {
-		moves++;
-		System.out.print(fromPole);
-		System.out.print(toPole);
-		System.out.print(((moves % 20) == 0) ? '\n' : ' ');
-	}
-
-	public static void main(String[] args) {
-		hanoi(5, 1, 2, 3);
-	}
-}
+package challenge.towers;
