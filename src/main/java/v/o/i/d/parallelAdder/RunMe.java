@@ -1,7 +1,5 @@
 package v.o.i.d.parallelAdder;
 
-import jodd.datetime.JStopWatch;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -45,7 +43,7 @@ public class RunMe {
 
 	private static long count(Runnable runnable) {
 		ExecutorService executor = Executors.newCachedThreadPool();
-		JStopWatch jStopWatch = new JStopWatch();
+		long now = System.currentTimeMillis();
 
 		for (long i = 0; i < (long) 10_000_000; i++) {
 			executor.execute(runnable);
@@ -57,7 +55,7 @@ public class RunMe {
 			e.printStackTrace();
 		}
 
-		return jStopWatch.stop();
+		return System.currentTimeMillis() - now;
 	}
 
 }
