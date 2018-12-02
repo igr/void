@@ -43,7 +43,7 @@ public class TM {
 				continue;
 			}
 
-			if (isEndOfFile(line)) { // EOF
+			if (isEndOfFile(line)) {
 				break;
 			}
 

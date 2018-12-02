@@ -97,7 +97,7 @@ public class Maze {
 
 			if (minotaur.killTheseusIfInPassage(theseus)) {
 				printTheseusKill();
-				return;
+				break;
 			}
 		}
 	}
