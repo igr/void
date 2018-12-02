@@ -5,7 +5,7 @@ public class Theseus extends Hero {
 		super(passage, nextCavern);
 	}
 
-	public boolean killMinotaurIfInCavern(final Minotaur minotaur) {
+	public boolean killIfInCavern(final Minotaur minotaur) {
 		assertInCavern();
 		return currentCavern.equals(minotaur.currentCavern);
 	}

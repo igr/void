@@ -87,7 +87,8 @@ public class Maze {
 			theseus.enterCavern();
 
 			theseus.lightCandleAndPutInCavern();
-			if (theseus.killMinotaurIfInCavern(minotaur)) {
+
+			if (theseus.killIfInCavern(minotaur)) {
 				printMinotaurKill();
 				break;
 			}
@@ -95,7 +96,7 @@ public class Maze {
 			minotaur.enterLeftUnvisitedPassage();
 			theseus.enterRightUnvisitedPassage();
 
-			if (minotaur.killTheseusIfInPassage(theseus)) {
+			if (minotaur.killIfInPassage(theseus)) {
 				printTheseusKill();
 				break;
 			}

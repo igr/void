@@ -16,7 +16,7 @@ public class Minotaur extends Hero {
 		enterNextUnvisitedPassage(passage -> currentCavern.findPreviousPassageFrom(passage));
 	}
 
-	public boolean killTheseusIfInPassage(final Theseus theseus) {
+	public boolean killIfInPassage(final Theseus theseus) {
 		assertInPassage();
 		return currentPassage == theseus.currentPassage;
 	}

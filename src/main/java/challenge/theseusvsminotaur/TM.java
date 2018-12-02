@@ -26,7 +26,7 @@ public class TM {
 			System.out.println(line);
 
 			if (isEndOfMazeDefinition(line)) {
-				// positions of Theseus and Minotaiur
+				// positions of Theseus and Minotaur
 
 				final String theseusCavernNameFrom = String.valueOf(line.charAt(1));
 				final String theseusCavernNameTo = String.valueOf(line.charAt(2));
