@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     compile 'org.jodd:jodd-core:5.0.5'
+    compile 'org.jodd:jodd-http:5.0.5'
     compile 'org.jodd:jodd-json:5.0.5'
 
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.0.0'
