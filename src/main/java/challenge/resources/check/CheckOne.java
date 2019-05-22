@@ -3,14 +3,13 @@ package challenge.resources.check;
 import challenge.resources.domain.Health;
 import challenge.resources.domain.Resource;
 
-public class CheckOne implements ResourceCheck {
-	@Override
-	public String id() {
-		return "c1";
+public class CheckOne extends ResourceCheck {
+	public CheckOne(Resource resource) {
+		super(resource);
 	}
 
 	@Override
-	public Health apply(Resource resource) {
-		return Health.LOW;
+	public CheckHealth get() {
+		return new CheckHealth(resource.getId(), "c1", Health.LOW);
 	}
 }
