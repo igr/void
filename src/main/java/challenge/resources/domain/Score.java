@@ -1,5 +1,7 @@
 package challenge.resources.domain;
 
+import challenge.resources.check.CheckHealth;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,9 +17,9 @@ public class Score {
 		return healthMap;
 	}
 
-	public Score addHealth(String checkName, Health health) {
-		this.health = health;
-		healthMap.put(checkName, health);
+	public Score addHealth(CheckHealth checkHealth) {
+		this.health = checkHealth.getHealth();
+		healthMap.put(checkHealth.getCheckId(), health);
 		return this;
 	}
 }

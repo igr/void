@@ -51,7 +51,7 @@ public class RunMe {
 
 					@Override
 					public BiConsumer<Score, CheckHealth> accumulator() {
-						return (score, checkHealth) -> score.addHealth(checkHealth.getCheckId(), checkHealth.getHealth());
+						return Score::addHealth;
 					}
 
 					@Override
@@ -83,7 +83,7 @@ public class RunMe {
 
 				.map(Supplier::get)
 				.reduce(new Score(),
-					(score, checkHealth) -> score.addHealth(checkHealth.getCheckId(), checkHealth.getHealth()),
+					Score::addHealth,
 					(score1, score2) -> score2);
 	}
 
@@ -93,7 +93,8 @@ public class RunMe {
 		Checks.createAllChecks().forEach(resourceCheck -> {
 			Health health = resourceCheck.apply(resource);
 			//score.addHealth(resourceCheck.id(), health);
-			score.addHealth(resourceCheck.getClass().getSimpleName(), health);
+			CheckHealth checkHealth = new CheckHealth(resource.getId(), resourceCheck.getClass().getSimpleName(), health);
+			score.addHealth(checkHealth);
 		});
 
 		return score;
