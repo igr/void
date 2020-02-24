@@ -19,9 +19,9 @@ public class Oblac { String $ = $ = $ = $ = $ =
 	"B060Q                             BAAQA" +
 	"QA$A@                             M0WOW" +
 	"OBOBHBM                         B#B@WDA" +
-	"HA@BAAQA$                     A@M0WOWOB" +
+	"HA@BAAQAQA$                   A@M0WOWOB" +
 	"OBHBMB#B@WDAHA@BAAQAQA$A@M0WOWOBOBHBM8N" +
-	""+""+""+""+""+""+""+""+""+""+""+""+""+"";
+	""+""+""+""+""+""+""+""+""+""+""+""+""+"" ;
 
 
 	String $$ = "WMODBA806QRN#$@H"; String $$$=
