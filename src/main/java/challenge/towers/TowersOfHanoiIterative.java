@@ -1,6 +1,8 @@
 package challenge.towers;
 
 
+import java.util.Arrays;
+
 public class TowersOfHanoiIterative {
 
 	int[] disks;    // represents current position of the disks.
@@ -13,9 +15,7 @@ public class TowersOfHanoiIterative {
 		this.n = n;
 		this.moves = 1;
 		disks = new int[n];
-		for (int i = 0; i < disks.length; i++) {
-			disks[i] = 1;
-		}
+		Arrays.fill(disks, 1);
 	}
 
 	public void run() {
