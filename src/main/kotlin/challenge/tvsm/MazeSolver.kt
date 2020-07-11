@@ -14,11 +14,13 @@ class MazeSolver(private val maze: MazeK) {
 				HeroAndCandles(minotaur, candles)
 			}.let {
 				senseCandleInNextCavern(it)
-					.ifCandleSeen { turnBack(it.hero) }
+					.ifCandleSeen {
+						turnBack(it.hero)
+					}
 			}
 
-			maze.minotaur(EnterCavern)
-				.theseus(EnterCavern)
+			maze.minotaur(enterCavern)
+				.theseus(enterCavern)
 
 				.thesesAndCandles {
 					putCandleInHeroesCavern(it)
