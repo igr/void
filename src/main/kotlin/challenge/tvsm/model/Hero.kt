@@ -38,8 +38,11 @@ abstract class HeroK(val name: String, p: PositionK) {
 		if (position !is PositionInCavernK) {
 			throw IllegalStateException("$name not in a cavern!")
 		}
-		val cavernFrom = (position as PositionInCavernK).cavern
-		move(PositionInPassageK(pp, pp.otherEndOf(cavernFrom), cavernFrom))
+		move((position as PositionInCavernK).enterPassage(pp))
+	}
+
+	fun samePlaceAs(other: HeroK) : Boolean {
+		return this.position.samePositionAs(other.position)
 	}
 
 	fun <T> doInPassage(consumer: (PositionInPassageK) -> T): T {
@@ -55,11 +58,6 @@ abstract class HeroK(val name: String, p: PositionK) {
 		}
 		return consumer(position as PositionInCavernK)
 	}
-
-	fun samePlaceAs(other: HeroK) : Boolean {
-		return this.position.samePositionAs(other.position)
-	}
-
 }
 
 class HeroMinotaurK(position: PositionK) : HeroK("Minotaur", position)

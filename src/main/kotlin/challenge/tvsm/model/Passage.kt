@@ -15,11 +15,6 @@ interface PassageK {
 
 class MutablePassageK(override val a: MutableCavernK, override val b: MutableCavernK) : PassageK {
 
-	fun connectCaverns() {
-		a.addPassage(this)
-		b.addPassage(this)
-	}
-
 	override fun toString(): String {
 		return "$a-$b"
 	}

@@ -1,13 +1,13 @@
 package challenge.tvsm.model
 
-// only used in HeroK !
 interface PositionK {
 	fun samePositionAs(other: PositionK): Boolean
 }
 
-// todo move all creation of passages HERE!
+// ** Positions creation should not come out of this file
+// ** Exception: the maze initialization
 
-data class PositionInPassageK(
+class PositionInPassageK(
 	val passage: PassageK,
 	val direction: CavernK,
 	val enteredFrom: CavernK?
@@ -34,7 +34,7 @@ data class PositionInPassageK(
 	}
 }
 
-data class PositionInCavernK(
+class PositionInCavernK(
 	val cavern: CavernK,
 	val previousPassage: PassageK
 ) : PositionK {
@@ -47,6 +47,10 @@ data class PositionInCavernK(
 	}
 	override fun toString(): String {
 		return "Cavern: $cavern from: $previousPassage"
+	}
+
+	fun enterPassage(pp: PassageK): PositionInPassageK {
+		return PositionInPassageK(pp, pp.otherEndOf(cavern), cavern)
 	}
 }
 

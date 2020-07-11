@@ -1,12 +1,10 @@
 package challenge.tvsm.maze
 
+import challenge.tvsm.ctx.HeroAndCandles
 import challenge.tvsm.model.Candles
-import challenge.tvsm.model.HeroK
 
-object PutCandleInHeroesCavern : (HeroK, Candles) -> Unit {
-	override fun invoke(hero: HeroK, candles: Candles) {
-		hero.doInCavern {
-			candles.putCandleInCavern(it)
-		}
+val putCandleInHeroesCavern = fun (ctx: HeroAndCandles): Candles {
+	return ctx.hero.doInCavern {
+		ctx.candles.putCandleInCavern(it)
 	}
 }

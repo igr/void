@@ -1,9 +1,9 @@
 package challenge.tvsm
 
-import challenge.tvsm.ctx.MazeK
 import jodd.util.ResourcesUtil
 import jodd.util.StringPool
 
+// *** just a quick-and-dirty text parser
 class MazeLoader {
 	// utility class that controls the lifespan and usage of caverns set
 	class Caverns {

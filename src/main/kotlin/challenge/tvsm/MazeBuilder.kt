@@ -1,6 +1,5 @@
 package challenge.tvsm
 
-import challenge.tvsm.ctx.MazeK
 import challenge.tvsm.model.*
 
 fun createMazeK(cavernPairs: Iterable<Pair<String, String>>,

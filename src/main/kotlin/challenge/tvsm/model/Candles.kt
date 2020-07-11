@@ -1,10 +1,10 @@
 package challenge.tvsm.model
 
-object Candles {
-	private val candles: Set<CavernK> = mutableSetOf()
+class Candles(set: Set<CavernK> = setOf()) {
+	private val candles: Set<CavernK> = set
 
-	fun putCandleInCavern(position: PositionInCavernK) {
-		candles + position.cavern
+	fun putCandleInCavern(position: PositionInCavernK): Candles {
+		return Candles(candles + position.cavern)
 	}
 
 	fun hasCandleIn(cavern: CavernK): Boolean {
