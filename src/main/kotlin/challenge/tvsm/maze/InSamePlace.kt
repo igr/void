@@ -2,12 +2,11 @@ package challenge.tvsm.maze
 
 import challenge.tvsm.ctx.TwoHeroes
 
-object InSamePlace: (TwoHeroes, (TwoHeroes) -> Unit) -> TwoHeroes {
-	override fun invoke(twoHeroes: TwoHeroes, fn: (TwoHeroes) -> Unit): TwoHeroes {
-		if (twoHeroes.theseus.samePlaceAs(twoHeroes.minotaur)) {
+val inSamePlace = fun(twoHeroes: TwoHeroes, fn: (TwoHeroes) -> Unit): TwoHeroes {
+	with(twoHeroes) {
+		if (theseus.samePlaceAs(minotaur)) {
 			fn.invoke(twoHeroes)
 		}
 		return twoHeroes
 	}
-
 }

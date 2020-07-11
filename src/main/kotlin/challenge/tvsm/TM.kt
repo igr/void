@@ -7,7 +7,7 @@ fun main() {
 		.stream()
 		.forEach {
 			println("---------------------------")
-			MazeSolver(it).solve()
+			it.solve()
 		}
 
 }
