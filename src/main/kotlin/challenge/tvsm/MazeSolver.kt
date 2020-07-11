@@ -22,16 +22,18 @@ class MazeSolver(private val maze: MazeK) {
 			maze.minotaur(enterCavern)
 				.theseus(enterCavern)
 
-				.thesesAndCandles {
-					putCandleInHeroesCavern(it)
-				}
+			with(maze) {
+				HeroAndCandles(theseus, candles)
+			}.let {
+				putCandleInHeroesCavern(it)
+			}
 
-				.heroes {
-					InSamePlace(it) {
-						TheseusKillMinotaur(it)
-						theend = true
-					}
+			maze.heroes {
+				InSamePlace(it) {
+					TheseusKillMinotaur(it)
+					theend = true
 				}
+			}
 
 			if (theend) break
 
