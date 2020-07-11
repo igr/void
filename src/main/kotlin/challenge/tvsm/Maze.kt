@@ -30,13 +30,14 @@ class MazeK(
 	fun solve() {
 		while (true) {
 
-			senseCandleInNextCavern(HeroAndCandles(minotaur, candles))
-				.ifCandleSeen {
-					turnBack(it)
-				}
+			HeroAndCandles(minotaur, candles).run {
+				senseCandleInNextCavern(this)
+			}.ifCandleSeen {
+				turnBack(it)
+			}
 
 			minotaur(enterCavern)
-			theseus(enterCavern)
+			enterCavern(theseus)
 
 			HeroAndCandles(theseus, candles).apply {
 				putCandleInHeroesCavern(this)
@@ -58,6 +59,5 @@ class MazeK(
 				.also { if (it) return@solve }
 		}
 	}
-
 
 }

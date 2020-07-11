@@ -4,7 +4,7 @@ import challenge.tvsm.HeroAndCandles
 import challenge.tvsm.model.HeroK
 
 class CandleSense(private val hero: HeroK, private val candleDetected: Boolean) {
-	fun <T> ifCandleSeen(body: (HeroK) -> T): Unit {
+	fun ifCandleSeen(body: (HeroK) -> Unit) {
 		if (candleDetected) {
 			body.invoke(hero)
 		}
