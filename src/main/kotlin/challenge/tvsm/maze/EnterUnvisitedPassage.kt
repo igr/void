@@ -10,7 +10,7 @@ object EnterLeftUnmarkedExit: (HeroK) -> Unit {
 				val leftPassage = it.cavern.leftPassageOf(pp)
 				val otherCave = leftPassage.otherEndOf(it.cavern)
 				if (!hero.usedExitTo(otherCave)) {
-					hero.enterThePassage(leftPassage)
+					hero.move(it.enterPassage(leftPassage))
 					break
 				}
 				pp = leftPassage
@@ -27,7 +27,7 @@ object EnterRightUnmarkedExit: (HeroK) -> Unit {
 				val rightPassage = it.cavern.rightPassageOf(pp)
 				val otherCave = rightPassage.otherEndOf(it.cavern)
 				if (!hero.usedExitTo(otherCave)) {
-					hero.enterThePassage(rightPassage)
+					hero.move(it.enterPassage(rightPassage))
 					break
 				}
 				pp = rightPassage

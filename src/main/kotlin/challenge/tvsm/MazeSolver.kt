@@ -14,9 +14,9 @@ class MazeSolver(private val maze: MazeK) {
 				HeroAndCandles(minotaur, candles)
 			}.let {
 				senseCandleInNextCavern(it)
-					.ifCandleSeen {
-						turnBack(it.hero)
-					}
+			}
+			.ifCandleSeen {
+				turnBack(it)
 			}
 
 			maze.minotaur(enterCavern)

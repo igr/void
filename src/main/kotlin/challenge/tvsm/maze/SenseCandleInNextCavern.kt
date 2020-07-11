@@ -1,11 +1,12 @@
 package challenge.tvsm.maze
 
 import challenge.tvsm.ctx.HeroAndCandles
+import challenge.tvsm.model.HeroK
 
-class CandleSense(private val candleDetected: Boolean) {
-	fun ifCandleSeen(body: () -> Unit) {
+class CandleSense(private val hero: HeroK, private val candleDetected: Boolean) {
+	fun <T> ifCandleSeen(body: (HeroK) -> T): Unit {
 		if (candleDetected) {
-			body.invoke()
+			body.invoke(hero)
 		}
 	}
 }
@@ -15,6 +16,6 @@ val senseCandleInNextCavern = fun(heroWithCandles: HeroAndCandles): CandleSense 
 		val senseCandle: Boolean = hero.doInPassage {
 			candles.hasCandleIn(it.direction)
 		}
-		return CandleSense(senseCandle)
+		return CandleSense(hero, senseCandle)
 	}
 }
