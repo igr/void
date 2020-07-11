@@ -1,6 +1,6 @@
 package challenge.tvsm.maze
 
-import challenge.tvsm.ctx.HeroAndCandles
+import challenge.tvsm.HeroAndCandles
 import challenge.tvsm.model.HeroK
 
 class CandleSense(private val hero: HeroK, private val candleDetected: Boolean) {

@@ -1,6 +1,6 @@
 package challenge.tvsm.maze
 
-import challenge.tvsm.ctx.TwoHeroes
+import challenge.tvsm.TwoHeroes
 
 object TheseusKillMinotaur: (TwoHeroes) -> Unit {
 	override fun invoke(twoHeroes: TwoHeroes) {

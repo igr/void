@@ -1,12 +1,18 @@
 package challenge.tvsm.maze
 
-import challenge.tvsm.ctx.TwoHeroes
+import challenge.tvsm.TwoHeroes
 
-val inSamePlace = fun(twoHeroes: TwoHeroes, fn: (TwoHeroes) -> Unit): TwoHeroes {
-	with(twoHeroes) {
-		if (theseus.samePlaceAs(minotaur)) {
-			fn.invoke(twoHeroes)
+class SamePlace(private val twoHeroes: TwoHeroes, private val same: Boolean) {
+	fun inSamePlace(fn: (TwoHeroes) -> Unit): Boolean {
+		if (same) {
+			fn(twoHeroes)
 		}
-		return twoHeroes
+		return same
+	}
+}
+
+val checkPlace = fun(twoHeroes: TwoHeroes): SamePlace {
+	with(twoHeroes) {
+		return SamePlace(twoHeroes, theseus.samePlaceAs(minotaur))
 	}
 }

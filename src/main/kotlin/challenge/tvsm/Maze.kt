@@ -1,37 +1,33 @@
 package challenge.tvsm
 
-import challenge.tvsm.ctx.HeroAndCandles
-import challenge.tvsm.ctx.TwoHeroes
 import challenge.tvsm.maze.*
 import challenge.tvsm.model.Candles
 import challenge.tvsm.model.HeroK
 import challenge.tvsm.model.HeroMinotaurK
 import challenge.tvsm.model.HeroTheseusK
 
+class TwoHeroes(val theseus: HeroTheseusK, val minotaur: HeroMinotaurK)
+class HeroAndCandles(val hero: HeroK, val candles: Candles)
+
 class MazeK(
-	var theseus: HeroTheseusK,
-	var minotaur: HeroMinotaurK,
-	var candles: Candles = Candles()
+	private var theseus: HeroTheseusK,
+	private var minotaur: HeroMinotaurK,
+	private var candles: Candles = Candles()
 ) {
 
-	fun minotaur(fn: (HeroMinotaurK) -> Unit): MazeK {
+	fun minotaur(fn: (HeroMinotaurK) -> Unit) {
 		fn(minotaur)
-		return this
 	}
 
-	fun theseus(fn: (HeroK) -> Unit): MazeK {
+	fun theseus(fn: (HeroK) -> Unit) {
 		fn(theseus)
-		return this
 	}
 
-	fun heroes(fn: (TwoHeroes) -> Unit): MazeK {
-		fn.invoke(TwoHeroes(theseus, minotaur))
-		return this
+	private fun heroes(): TwoHeroes  {
+		return TwoHeroes(theseus, minotaur)
 	}
 
 	fun solve() {
-		var theend = false;
-
 		while (true) {
 
 			senseCandleInNextCavern(HeroAndCandles(minotaur, candles))
@@ -42,28 +38,24 @@ class MazeK(
 			minotaur(enterCavern)
 			theseus(enterCavern)
 
-			putCandleInHeroesCavern(HeroAndCandles(theseus, candles))
+			HeroAndCandles(theseus, candles).apply {
+				putCandleInHeroesCavern(this)
+			}
 
-			heroes {
-				inSamePlace(it) {
+			checkPlace(heroes())
+				.inSamePlace {
 					TheseusKillMinotaur(it)
-					theend = true
 				}
-			}
+				.also { if (it) return@solve }
 
-			if (theend) break
+			minotaur(enterLeftUnmarkedExit)
+			theseus(enterRightUnmarkedExit)
 
-			minotaur(EnterLeftUnmarkedExit)
-			theseus(EnterRightUnmarkedExit)
-
-			heroes {
-				inSamePlace(it) {
+			checkPlace(heroes())
+				.inSamePlace {
 					MinotaurKillTheseus(it)
-					theend = true
 				}
-			}
-
-			if (theend) break
+				.also { if (it) return@solve }
 		}
 	}
 
