@@ -80,10 +80,11 @@ package v.o.i.d.singleton;
  *
  * ---------------------------------------------------------------------------------------------------------------------
  *
- * To show how this occurs, consider the following pseudo code for the line: instance =new Singleton();
- * mem = allocate(); //Allocate memory for Singleton object.
- * instance = mem; //Note that instance is now non-null, but has not been initialized.
- * ctorSingleton(instance); //Invoke constructor for Singleton passing instance.
+ * To show how this occurs, consider the following pseudo code for the line: instance = new Singleton();
+ *
+ * mem = allocate();            // Allocate memory for Singleton object.
+ * instance = mem;              // Note that instance is now non-null, but has not been initialized.
+ * ctorSingleton(instance);     // Invoke constructor for Singleton passing instance.
  *
  * ---------------------------------------------------------------------------------------------------------------------
  *
@@ -112,13 +113,17 @@ public class UnsafeDCLFactory {
 	private Singleton instance;
 
 	public Singleton get() {
-		if (instance == null) {             // read 1, check 1
+		if (instance == null) {                         // read 1, check 1
 			synchronized (this) {
-				if (instance == null) {     // read 2, check 2
-					instance = new Singleton();     // statement #1
+				if (instance == null) {                 // read 2, check 2
+					instance = new Singleton();       // statement #1
+
+					// mem = allocate();              // Allocate memory for Singleton object.
+                    // instance = mem;                // instance is now non-null, but has not been initialized.
+                    // ctorSingleton(instance);       // Invoke constructor for Singleton passing instance.
 				}
 			}
 		}
-		return instance;                    // read 3
+		return instance;                              // read 3
 	}
 }
