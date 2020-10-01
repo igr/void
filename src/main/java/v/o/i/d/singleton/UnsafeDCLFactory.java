@@ -118,7 +118,7 @@ public class UnsafeDCLFactory {
 				if (instance == null) {                 // read 2, check 2
 					instance = new Singleton();       // statement #1
 
-					// mem = allocate();              // Allocate memory for Singleton object.
+					// mem = allocate();              // allocate memory for Singleton object.
                     // instance = mem;                // instance is now non-null, but has not been initialized.
                     // ctorSingleton(instance);       // Invoke constructor for Singleton passing instance.
 				}

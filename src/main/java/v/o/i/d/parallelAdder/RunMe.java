@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 public class RunMe {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		// naive
 
 		NaiveCounter naiveCounter = new NaiveCounter();
