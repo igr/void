@@ -26,17 +26,13 @@ public class Theif {
 			if (!nextStep(arr, maxItems)) {
 				break;
 			}
-			//System.out.println(Arrays.toString(arr));
 			int weight = calcWeight(cakeTypes, arr);
-			//System.out.println("weight = " + weight);
 			if (weight > capacity) {
 				continue;
 			}
 			int price = calcPrice(cakeTypes, arr);
-			//System.out.println("price = " + price);
 			if (price > maxPrice) {
 				maxPrice = price;
-				System.arraycopy(arr, 0, maxArr, 0, arr.length);
 			}
 		}
 
