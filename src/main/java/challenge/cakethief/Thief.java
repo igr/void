@@ -2,7 +2,7 @@ package challenge.cakethief;
 
 import java.util.Arrays;
 
-public class Theif {
+public class Thief {
 
 	public static void main(String[] args) {
 		CakeType[] cakeTypes = new CakeType[]{
