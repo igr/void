@@ -1,0 +1,18 @@
+plugins {
+    id("org.jetbrains.kotlin.jvm") version "${kotlin_version}"
+}
+
+allprojects {
+    version = "1.0.0-SNAPSHOT"
+    group = "ac.obl.voidkt"
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+tasks.named('wrapper') {
+    gradleVersion = "${gradle_version}"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
