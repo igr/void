@@ -1,5 +1,7 @@
 package voids.book.p03_methods
 
+import scala.language.implicitConversions
+
 class ImplicitIntro extends App {
 
   val pair = "Daniel" -> "555"
