@@ -1,0 +1,8 @@
+
+# just displays the receipes
+default:
+    @just --list
+
+# runs the project
+run:
+    java -jar flix.jar run
