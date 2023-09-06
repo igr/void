@@ -12,7 +12,7 @@ public class Util {
 	}
 
 	/**
-	 * Does the {@link #swap(int[], int, int)} if a[j] is less then a[i].
+	 * Does the {@link #swap(int[], int, int)} if a[j] is less than a[i].
 	 */
 	public static void compSwap(int[] a, int i, int j) {
 		if (a[j] < a[i]) {
@@ -32,6 +32,6 @@ public class Util {
 	}
 
 	public static void print(int h) {
-		System.out.println(String.valueOf(h));
+		System.out.println(h);
 	}
 }
