@@ -26,15 +26,15 @@ public class Three {
 		);
 	}
 
-	public IntegerWithHistory addOne(IntegerWithHistory i) {
+	public IntegerWithHistory increment(IntegerWithHistory i) {
 		return new IntegerWithHistory(
 				i.value + 1,
-				join(i.history, "addOne: " + i.value)
+				join(i.history, "increment: " + i.value)
 		);
 	}
 
 	public void run() {
-		IntegerWithHistory i = addOne(square(IntegerWithHistory.wrap(3)));
+		IntegerWithHistory i = increment(square(IntegerWithHistory.wrap(3)));
 		System.out.println(i.value);
 		System.out.println(Arrays.toString(i.history));
 	}
