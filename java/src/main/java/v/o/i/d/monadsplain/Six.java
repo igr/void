@@ -25,7 +25,7 @@ public class Six {
 			final IntegerWithHistory a = operation.apply(value);
 			return new IntegerWithHistory(
 					a.value,
-					join(history, join(history, a.history))
+					join(history, a.history)
 			);
 		}
 	}
