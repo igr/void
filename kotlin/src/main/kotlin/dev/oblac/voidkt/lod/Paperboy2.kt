@@ -1,4 +1,4 @@
-package ac.obl.voidkt.lod
+package dev.oblac.voidkt.lod
 
 data class Wallet3(private var cash : Int) {
 	fun withdraw(amount : Int) : Int {

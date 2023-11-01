@@ -1,4 +1,4 @@
-package ac.obl.voidkt.colections
+package dev.oblac.voidkt.colections
 
 /*
  * Two teams play a basketball match. Given the list of <player, team, points> for each player
@@ -10,9 +10,9 @@ enum class Team {
 }
 
 data class PlayerGame (
-    val player : String,
-    val team : Team,
-    val points : Int
+	val player : String,
+	val team : Team,
+	val points : Int
 )
 
 val match = listOf(
@@ -30,6 +30,6 @@ val match = listOf(
 )
 
 fun main() {
-    val sums = match.groupingBy{it.team}.fold(0) {sum, element -> sum + element.points}
+    val sums = match.groupingBy{it.team}.fold(0) { sum, element -> sum + element.points}
     println(sums)
 }

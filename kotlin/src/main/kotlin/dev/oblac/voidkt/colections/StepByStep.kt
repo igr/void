@@ -1,4 +1,4 @@
-package ac.obl.voidkt.colections
+package dev.oblac.voidkt.colections
 
 /*
  * We have an array where each element is the number of steps taken until that moment
@@ -22,6 +22,6 @@ val steps = listOf(
 )
 
 fun main() {
-    val maxStepsPerMinute = steps.zipWithNext{a, b -> b - a}.maxOrNull()
+    val maxStepsPerMinute = steps.zipWithNext{ a, b -> b - a}.maxOrNull()
     println(maxStepsPerMinute)
 }

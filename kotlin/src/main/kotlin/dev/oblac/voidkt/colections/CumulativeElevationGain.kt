@@ -1,4 +1,4 @@
-package ac.obl.voidkt.colections
+package dev.oblac.voidkt.colections
 
 /*
  * Cumulative Elevation Gain or Total Ascent is:
@@ -15,6 +15,6 @@ val altitudes = listOf(
 )
 
 fun main() {
-    val cumulativeGain = altitudes.zipWithNext{a,b -> b - a}.filter{it > 0}.sum()
+    val cumulativeGain = altitudes.zipWithNext{ a, b -> b - a}.filter{it > 0}.sum()
     println(cumulativeGain)
 }

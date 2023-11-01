@@ -1,4 +1,4 @@
-package ac.obl.voidkt.lod
+package dev.oblac.voidkt.lod
 
 // trying to fix the issue with the delegate
 data class Customer1(val name : String, private val wallet : Wallet) {

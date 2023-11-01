@@ -1,4 +1,4 @@
-package ac.obl.voidkt.lod
+package dev.oblac.voidkt.lod
 
 data class WalletX(val cash : Int)
 

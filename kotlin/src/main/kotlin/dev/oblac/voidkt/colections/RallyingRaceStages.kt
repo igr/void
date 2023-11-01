@@ -1,4 +1,4 @@
-package ac.obl.voidkt.colections
+package dev.oblac.voidkt.colections
 
 /*
  * A rallying race has 4 stages. At the end of each stage, a measure is taken.
@@ -22,6 +22,6 @@ val measures = mutableListOf (
 )
 
 fun main() {
-    val fastestStageNumber = measures.zipWithNext{a, b -> (b.metersAcc - a.metersAcc)/(b.secondsAcc - a.secondsAcc)}.mapIndexed{idx, value -> Pair(idx+1, value)}.maxByOrNull{it.second}
+    val fastestStageNumber = measures.zipWithNext{ a, b -> (b.metersAcc - a.metersAcc)/(b.secondsAcc - a.secondsAcc)}.mapIndexed{ idx, value -> Pair(idx+1, value)}.maxByOrNull{it.second}
     println("The fastest stage is stage number ${fastestStageNumber?.first} with speed = ${fastestStageNumber?.second} m/s")
 }
