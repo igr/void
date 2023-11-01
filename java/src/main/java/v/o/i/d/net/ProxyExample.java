@@ -6,13 +6,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 public class ProxyExample {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, URISyntaxException {
 		Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("dps.iso.apple.com", 443));
-		URL url = new URL("http://google.com");
+		URL url = new URI("http://google.com").toURL();
 
 		System.out.println("open");
 		HttpURLConnection uc = (HttpURLConnection) url.openConnection(proxy);
