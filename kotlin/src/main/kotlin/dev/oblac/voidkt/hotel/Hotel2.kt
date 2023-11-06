@@ -6,20 +6,19 @@ Grouping the functions.
 
 */
 
-// ROOM TYPES, AVAILABLE ROOMS
+// ROOM TYPES, AVAILABLE ROOMS, ROOMS
 val findAvailableRoomTypes: (DateRange) -> List<RoomType> = TODO()
-// ROOMS
 val reserveUnoccupiedRoom: (RoomType) -> Room
 
-// BOOKING
+// RESERVATION (ROOM PRICES) - _maybe_ part of the same service as above
+val findDayPricesForRoomType: (RoomType, DateRange) -> List<DayPrice>
+val findReservationPrices: (Reservation) -> List<DayPrice>
 val createReservation: (RoomType, DateRange) -> Reservation
-val storeNewBookingForReservation: (Customer, Reservation, Amount) -> Booking
+
+// BOOKING
 val createBooking: (Customer, Reservation) -> Booking
 val findBooking: (Customer) -> Booking
 
-
-// PRICING
-val findDayPricesForRoomType: (RoomType, DateRange) -> List<DayPrice>
 // PAYMENT
 val authorizePayment: (Customer, Amount) -> Boolean
 val findCancellationFee: () -> Amount

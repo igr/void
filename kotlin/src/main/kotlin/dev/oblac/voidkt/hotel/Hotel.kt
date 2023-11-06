@@ -60,10 +60,13 @@ fun search(dateRange: DateRange): List<BookingChoice> {
 
 data class UserDetails(val value: Value)
 data class Reservation(val id: Id, val roomType: RoomType, val dateRange: DateRange)
-data class Booking(val id: Id, val customer: Customer, val reservation: Reservation, val totalAmount: Amount)
+data class Booking(val id: Id, val customer: Customer, val reservation: Reservation)
 data class Amount(val value: Value) {
 	companion object {
-		fun of(i: String): Amount {
+		fun of(dayPrices: DayPrice): Amount {
+			TODO()
+		}
+		fun total(amounts: List<Amount>): Amount {
 			TODO()
 		}
 	}
@@ -88,19 +91,15 @@ internal fun createReservation(roomType: RoomType, dateRange: DateRange): Either
 	// this has to be atomic operation; but this is not important for modeling!
 	TODO()
 }
+internal fun findReservationPrices(reservation: Reservation): List<DayPrice> {
+	TODO()
+}
 
 internal fun storeCustomer(userDetails: UserDetails): Customer {
 	TODO()
 }
-
-internal fun storeNewBookingForReservation(customer: Customer, reservation: Reservation, totalAmount: Amount): Booking {
-	TODO()
-}
-
 internal fun createBooking(customer: Customer, reservation: Reservation): Booking {
-	findDayPricesForRoomType(reservation.roomType, reservation.dateRange)
-	val totalAmount = Amount.of("sum of day prices")
-	return storeNewBookingForReservation(customer, reservation, totalAmount)
+	TODO()
 }
 
 fun book(userDetails: UserDetails, roomType: RoomType, dateRange: DateRange): Either<String, Booking> {
@@ -112,7 +111,7 @@ fun book(userDetails: UserDetails, roomType: RoomType, dateRange: DateRange): Ei
 
 	val reservation = createReservation(roomType, dateRange)
 
-	val result = with(reservation) {
+	return with(reservation) {
 		when (this) {
 			is Either.Left -> "No room".left()
 			is Either.Right -> {
@@ -122,7 +121,6 @@ fun book(userDetails: UserDetails, roomType: RoomType, dateRange: DateRange): Ei
 			}
 		}
 	}
-	return result
 }
 
 /** Requirement #3 */
@@ -131,11 +129,13 @@ internal fun findCustomer(userDetails: UserDetails): Optional<Customer> {
 	TODO()
 }
 fun findBooking(customer: Customer): Optional<Booking> {
+	// and other query options
 	TODO()
 }
 
 fun authorizeBooking(booking: Booking) {
-	authorizePayment(booking.customer, booking.totalAmount)
+	val prices = findReservationPrices(booking.reservation).map { Amount.of(it) }
+	authorizePayment(booking.customer, Amount.total(prices))
 }
 
 fun pickRoom(booking: Booking): ActiveBooking {
