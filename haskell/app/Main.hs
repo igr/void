@@ -1,6 +1,14 @@
 module Main (main) where
-
 import Lib
+import MtlEx
+-- import Functions
 
 main :: IO ()
-main = someFunc
+main = do
+    helloWorld
+
+    calcMltEx
+    runMtlEx
+
+
+

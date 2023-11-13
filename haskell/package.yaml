@@ -1,6 +1,6 @@
-name:                void
+name:                voidhask
 version:             0.1.0.0
-github:              "githubuser/void"
+github:              "igr/void/haskell"
 license:             BSD-3-Clause
 author:              "Author name here"
 maintainer:          "example@example.com"
@@ -37,7 +37,7 @@ library:
   source-dirs: src
 
 executables:
-  void-exe:
+  voidhask-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -45,10 +45,11 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - void
+    - voidhask
+    - mtl >= 2.2.2
 
 tests:
-  void-test:
+  voidhask-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -56,4 +57,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - void
+    - voidhask
