@@ -26,7 +26,10 @@ source-repository head
 
 library
   exposed-modules:
+      Collatz
       Lib
+      Set1
+      Todo
   other-modules:
       Paths_voidhask
   autogen-modules:
@@ -41,6 +44,7 @@ library
 executable voidhask-exe
   main-is: Main.hs
   other-modules:
+      Fun
       Functions
       MtlEx
       Paths_voidhask
