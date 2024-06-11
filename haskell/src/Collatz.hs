@@ -1,4 +1,4 @@
-module Collatz where
+module Collatz (step, collatz) where
 
 -- The module is interested in the Collatz conjecture, a famous open problem in mathematics. It asks:
 -- Does the Collatz sequence eventually reach 1 for all positive integer initial values?

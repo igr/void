@@ -1,4 +1,4 @@
-module Set1 where
+module Set1 (module Set1) where
 
 ------------------------------------------------------------------------------
 -- Ex 1: define variables one and two. They should have type Int and

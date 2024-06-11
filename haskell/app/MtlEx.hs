@@ -1,4 +1,3 @@
--- MTL is an acronym and stands for Monad Transformer Library
 module MtlEx (
     runMtlEx,
     calcMltEx
