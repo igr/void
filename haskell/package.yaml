@@ -47,6 +47,9 @@ executables:
     dependencies:
     - voidhask
     - mtl >= 2.2.2
+    - array >= 0.5.4.0
+    - containers >= 0.6.7
+    - split >= 0.2.3.5
 
 tests:
   voidhask-test:

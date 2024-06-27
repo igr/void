@@ -27,6 +27,7 @@ source-repository head
 library
   exposed-modules:
       Collatz
+      HR01
       Lib
       Set1
       Todo
@@ -46,6 +47,7 @@ executable voidhask-exe
   other-modules:
       Fun
       Functions
+      Main01
       MtlEx
       Paths_voidhask
   autogen-modules:
@@ -54,8 +56,11 @@ executable voidhask-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      array >=0.5.4.0
+    , base >=4.7 && <5
+    , containers >=0.6.7
     , mtl >=2.2.2
+    , split >=0.2.3.5
     , voidhask
   default-language: Haskell2010
 

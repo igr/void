@@ -1,0 +1,9 @@
+2024-06-14 23:31:44.490242000000 [52624(ThreadId 17)] ERROR APP - [CRITICAL] can not get the initial ghci prompt.
+2024-06-14 23:37:43.662124000000 [53595(ThreadId 17)] ERROR APP - [CRITICAL] can not get the initial ghci prompt.
+2024-06-14 23:39:03.345138000000 [54283(ThreadId 17)] ERROR APP - [CRITICAL] can not get the initial ghci prompt.
+2024-06-15 00:04:14.354658000000 [33072(ThreadId 17)] ERROR APP - [CRITICAL] can not get the initial ghci prompt.
+2024-06-15 00:26:33.291316000000 [36674(ThreadId 16)] CRITICAL REQUEST - invalid HANDLE. eof.
+2024-06-15 00:26:52.001245000000 [39106(ThreadId 16)] CRITICAL REQUEST - invalid HANDLE. eof.
+2024-06-15 00:27:00.787216000000 [39436(ThreadId 17)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2024-06-15 00:30:49.937170000000 [40083(ThreadId 16)] CRITICAL REQUEST - invalid HANDLE. eof.
+2024-06-15 00:31:21.254897000000 [40466(ThreadId 16)] CRITICAL REQUEST - invalid HANDLE. eof.

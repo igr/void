@@ -1,3 +1,5 @@
 .stack-work/
 *~
 .metals
+.vscode/dist-cabal-repl
+*.log
