@@ -47,6 +47,8 @@ executable voidhask-exe
   other-modules:
       Fun
       Functions
+      HelloWorld
+      ListReplication
       Main01
       MtlEx
       Paths_voidhask

@@ -7,3 +7,4 @@
 2024-06-15 00:27:00.787216000000 [39436(ThreadId 17)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
 2024-06-15 00:30:49.937170000000 [40083(ThreadId 16)] CRITICAL REQUEST - invalid HANDLE. eof.
 2024-06-15 00:31:21.254897000000 [40466(ThreadId 16)] CRITICAL REQUEST - invalid HANDLE. eof.
+2024-06-27 10:15:11.049245000000 [65370(ThreadId 16)] CRITICAL REQUEST - invalid HANDLE. eof.
