@@ -11,7 +11,7 @@ public class GuessingGame {
 	private static final InputStream in = System.in;
 
 	public static void main(String[] args) {
-		IoMonad<Void> game = IoMonad
+		final var game = IoMonad
 				.of(() -> out.println("Welcome to the Guessing Game!"))
 				.bind(ignored -> generateRandomNumber())
 				.map(number -> number + 1)  // [0, 100) -> [1, 100]
