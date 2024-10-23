@@ -10,9 +10,13 @@ public sealed interface IoMonad<T> {
 	// Haskell's `>>=` operator (bind)
 	<R> IoMonad<R> bind(Function<T, IoMonad<R>> mapper);
 
+	// Haskell's `>>` operator (then)
+	default <R> IoMonad<R> then(IoMonad<R> next) {
+		return this.bind(ignored -> next);
+	}
+
 	T run() throws Exception;
 
-	// Haskell's `>>` operator (then)
 	static <T> IoMonad<T> of(Callable<T> computation) {
 		return new DefaultIoMonad<>(computation);
 	}
@@ -23,10 +27,6 @@ public sealed interface IoMonad<T> {
 			computation.run();
 			return null;
 		});
-	}
-
-	default <R> IoMonad<R> then(IoMonad<R> next) {
-		return this.bind(ignored -> next);
 	}
 
 	final class DefaultIoMonad<T> implements IoMonad<T> {
