@@ -12,6 +12,10 @@ java {
     }
 }
 
+test {
+
+    useJUnitPlatform()
+}
 dependencies {
     implementation 'org.jodd:jodd-core:5.1.4'
     implementation 'org.jodd:jodd-http:5.1.4'
@@ -25,5 +29,6 @@ dependencies {
 
     implementation 'io.projectreactor:reactor-core:3.4.9'
 
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.0.0'
 }
