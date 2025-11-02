@@ -1,6 +1,6 @@
 cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.36.0.
+-- This file has been generated from package.yaml by hpack version 0.37.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -50,6 +50,7 @@ executable voidhask-exe
       HelloWorld
       ListReplication
       Main01
+      MonadTransformer
       MtlEx
       Paths_voidhask
   autogen-modules:
